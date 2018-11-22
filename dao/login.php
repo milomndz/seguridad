@@ -6,43 +6,59 @@
     session_start();
     require_once('string.php');
     require_once('../connections/cn.php');
-    $usuario = $_POST['usuario'];
-    $password = $_POST['password'];
-    $usuario = lstring($usuario);
-    $password = $password;
-    $sql = "SELECT username, pass, id_nivel FROM public.usuario;";
-    $res = pg_query($db, $sql);
+    $usuarioa = $_POST['usuario'];
+    $passworda = $_POST['password'];
+    
+    $usuario = lstring($usuarioa);
+    $password = $passworda;
+    
+    $query = "SELECT * FROM USUARIO WHERE username = $1 and pass = $2";
+    $sql = pg_prepare($db, "autenticacion", $query);
+    
+    $res = pg_execute($db, "autenticacion", array($usuario, $password));
     if(!$res) {
         echo pg_last_error($db);
         exit;
     }
 
-    do{
-        if($usuario === $row['username'] && $password === $row['pass']){
-          $_SESSION['usuario_cliente'] = $usuario;
+    $result = pg_fetch_row($res);
 
-          if(2 == $row['id_nivel']){
-            header("Location: ../_registro/index.php");
-          }
-          elseif(3 == $row['id_nivel']){
-            header("Location: ../_maestro/index.php");
-          }
-          elseif(4 == $row['id_nivel']){
-            header("Location: ../_investigador/index.php");
-          }
-          elseif(5 == $row['id_nivel']){
-            header("Location: ../_estatal/index.php");
-          }
-          elseif(6 == $row['id_nivel']){
-            header("Location: ../_intocable/index.php");
-          }
-          
-        }
-        else{
-          header("Location: ../login.php");
-        }
-      } while($row = pg_fetch_assoc($res));
-    
- ?>
+    //echo $result[0] . " " . $result[1] . " " . $result[2] . " " . $result[3] . " ". $result[4] . "<br>";
+    //echo $usuario . " " . $password;
+
+    if($result[0] == $usuario && $result[1] == $password){
+       $_SESSION['usuario_cliente'] = $usuario;
+
+      if($result[4] == 1){
+        echo "Nivel 1";
+      }
+      if($result[4] == 2){
+        $token = bin2hex(openssl_random_pseudo_bytes(8));
+        $_SESSION['token'] = $token;
+        header("Location: ../_registro/index.php");
+      }
+      elseif($result[4] == 3){
+        $token = bin2hex(openssl_random_pseudo_bytes(8));
+        $_SESSION['token'] = $token;
+        header("Location: ../_maestro/index.php");
+        
+      }
+      elseif($result[4] == 4){
+        header("Location: ../_investigador/index.php");
+      }
+      elseif($result[4] == 5){
+        header("Location: ../_estatal/index.php");
+      }
+      if($result[4] == 6){
+        header("Location: ../_intocable/index.php");
+      }
+
+    }
+    else{
+      echo "no se encontro el usuario, o la contraseña es incorrecta. " . "<a href='../login.php'>Clic para volver</a>";
+      //header("Location: ../login.php");
+    }
+
+  ?>
 </body>
 </html>
