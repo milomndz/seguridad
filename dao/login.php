@@ -23,7 +23,8 @@
     $result = pg_fetch_row($res);
     //echo $result[0] . " " . $result[1] . " " . $result[2] . " " . $result[3] . " ". $result[4] . "<br>";
     //echo $usuario . " " . $password;
-    if($result[0] == $usuario && $result[1] == $password){
+    //$pass=sha1($password);
+    if($result[0] == $usuario && $result[1] == $password) {
        $_SESSION['usuario'] = $usuario;
       
       if($result[4] == 2){
@@ -58,7 +59,7 @@
       }
     }
     else{
-      echo "no se encontro el usuario, o la contraseña es incorrecta. " . "<a href='../login.php'>Clic para volver</a>";
+    echo "no se encontro el usuario, o la contraseña es incorrecta. " . "<a href='../login.php'>Clic para volver</a>";
       //header("Location: ../login.php");
     }
   ?>

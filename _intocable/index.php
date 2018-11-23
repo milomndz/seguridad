@@ -45,6 +45,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-3"><circle cx="10.5" cy="10.5" r="7.5"></circle><line x1="21" y1="21" x2="15.8" y2="15.8"></line></svg>
             </a>
 						<a class="btn btn-sm btn-outline-secondary" href="../_intocable/Token/pedirtoken.php">Pedir Token</a>
+            <a class="btn btn-sm btn-outline-secondary" href="../_intocable/ChangePass/cambiarPassForm.php">Cambiar Pass</a>
           </div>
         </div>
       </header>
@@ -130,7 +131,7 @@
                 <label for="message-text" class="col-form-label">Token:</label>
                 <input type="text" id="token-name" name="token-name" class="form-control">
               </div>
-            
+
           </div>
           <div class="modal-footer">
             <button  class="btn btn-danger" id="btnPrestar"  type="submit">Prestar</button>
