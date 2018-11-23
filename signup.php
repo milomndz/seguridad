@@ -25,7 +25,6 @@
       <input type="text" id="usuario" name="nombre" class="form-control" placeholder="Nombre" required autofocus>
       <input type="text" id="usuario" name="apellido" class="form-control" placeholder="Apellido" required autofocus>
       <input type="text" id="usuario" name="usuario" class="form-control" placeholder="usuario" required autofocus>
-      <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
       <p class="h5 mb-3 font-weight-normal">Nivel deseado</p>
       <div class="radio mb-3">
         <input type="radio" name="nivel" value="1" checked> 1 <span style="margin-right: 10px;"></span> 

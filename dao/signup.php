@@ -4,7 +4,7 @@
 	$nombre = $_POST['nombre'];
 	$apellido = $_POST['apellido'];
 	$usuario = $_POST['usuario'];
-	$password = $_POST['password'];
+	$password = bin2hex(openssl_random_pseudo_bytes(8));
 	$nivel = $_POST['nivel'];
 
 	$password = sha1($password);
@@ -21,6 +21,8 @@
         exit;
     }
 
-    echo "Usuario registrado con éxito. <a href='../login.php'>Clic aquí</a> para iniciar sesión" ;
+    echo "Usuario registrado con éxito. <a href='../login.php'>Clic aquí</a> para iniciar sesión.<br>" ;
+    echo "Su contraseña es $password <br>";
+    echo "Por favor, cambiala cuando inicies sesion por primera vez"
 
 ?>
