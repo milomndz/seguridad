@@ -10,7 +10,7 @@
     $passworda = $_POST['password'];
 
     $usuario = lstring($usuarioa);
-    $password = $passworda;
+    $password = sha($passworda);
 
     $query = "SELECT * FROM USUARIO WHERE username = $1 and pass = $2";
     $sql = pg_prepare($db, "autenticacion", $query);
