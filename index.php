@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Blog Template for Bootstrap</title>
+    <title>Biblioteca de Citadel</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -82,7 +82,7 @@
             </div>
             <img class="card-img-right flex-auto d-none d-lg-block"  src="img/portada.jpg" width="200px" weight="200px" alt="Card image cap">
           </div>
-          
+
         </div>
         <?php }while($row = pg_fetch_assoc($res));?>
       </div>
@@ -91,7 +91,7 @@
     </div>
 
     <footer class="blog-footer">
-      <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+      <p>Biblioteca de Citadel <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
       <p>
         <a href="#">Back to top</a>
       </p>
