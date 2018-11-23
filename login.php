@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Signin Template for Bootstrap</title>
+    <title>Inicio de Sesion</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -26,7 +26,7 @@
       <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
       <div class="checkbox mb-3">
         <label>
-          <input type="checkbox" value="remember-me">Recuerdame 
+          <input type="checkbox" value="remember-me">Recuerdame
         </label>
       </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
