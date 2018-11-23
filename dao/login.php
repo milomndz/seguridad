@@ -10,7 +10,7 @@
     $passworda = $_POST['password'];
 
     $usuario = lstring($usuarioa);
-    $password = $passworda;
+    $password = sha1($passworda);
 
     $query = "SELECT * FROM USUARIO WHERE username = $1 and pass = $2";
     $sql = pg_prepare($db, "autenticacion", $query);
@@ -25,9 +25,7 @@
     //echo $usuario . " " . $password;
     if($result[0] == $usuario && $result[1] == $password){
        $_SESSION['usuario'] = $usuario;
-      if($result[4] == 1){
-        echo "Nivel 1";
-      }
+      
       if($result[4] == 2){
         $token = bin2hex(openssl_random_pseudo_bytes(8));
         $_SESSION['token'] = $token;
