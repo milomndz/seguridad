@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Biblioteca de Citadel</title>
+    <title>Blog Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -33,7 +32,6 @@
             <a class="text-muted" href="#">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-3"><circle cx="10.5" cy="10.5" r="7.5"></circle><line x1="21" y1="21" x2="15.8" y2="15.8"></line></svg>
             </a>
-            <a class="btn btn-sm btn-outline-secondary" href="signup.php">Registrarse</a>
           </div>
         </div>
       </header>
@@ -65,12 +63,12 @@
             Adquisiciones más recientes
           </h3>
       <div class="row mb-2">
-        <?php require_once('dao/libros.php');
+        <?php require_once('dao/librosT.php');
          do{?>
         <div class="col-md-6">
           <div class="card flex-md-row mb-4 shadow-sm h-md-250">
             <div class="card-body d-flex flex-column align-items-start">
-              <strong class="d-inline-block mb-2 text-success">Nuevo</strong>
+              <strong class="d-inline-block mb-2 text-success">Público</strong>
               <h3 class="mb-0">
                 <a class="text-dark" href="#"><?php echo $row['titulo'];  ?></a>
               </h3>
@@ -82,16 +80,16 @@
             </div>
             <img class="card-img-right flex-auto d-none d-lg-block"  src="img/portada.jpg" width="200px" weight="200px" alt="Card image cap">
           </div>
-
+          
         </div>
         <?php }while($row = pg_fetch_assoc($res));?>
       </div>
-      <a class="btn btn-lg btn-info btn-block" href="all.php" role="button">Ver todos</a>
+      <a class="btn btn-lg btn-info btn-block" href="index.php" role="button">Regresar</a>
       <br>
     </div>
 
     <footer class="blog-footer">
-      <p>Biblioteca de Citadel <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+      <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
       <p>
         <a href="#">Back to top</a>
       </p>

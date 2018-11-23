@@ -1,4 +1,16 @@
-
+<?php
+	session_start();
+	if($_SESSION['usuario'] != ""){
+    if ($_SESSION['rol'] != "estatal") {
+      echo "perdiste el rol maje";//header("Location: ../login.php");
+    }
+  }
+  else{
+		echo "perdiste el usuario maje";
+//		header("Location: ../login.php");
+  }
+  require_once('../dao/nivel.php');
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,14 +20,14 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Biblioteca de Citadel</title>
+    <title>Blog Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
-    <link href="css/index.css" rel="stylesheet">
+    <link href="../css/index.css" rel="stylesheet">
   </head>
 
   <body>
@@ -24,16 +36,16 @@
       <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
           <div class="col-4 pt-1">
-            <a class="text-muted" href="login.php">Ingresar</a>
+            <a class="text-muted" href="../dao/logout.php">Salir</a>
           </div>
           <div class="col-4 text-center">
-            <a class="blog-header-logo text-dark" href="index.php">Biblioteca de Citadel</a>
+            <a class="blog-header-logo text-dark" href="#">Biblioteca de Citadel</a>
           </div>
           <div class="col-4 d-flex justify-content-end align-items-center">
             <a class="text-muted" href="#">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-3"><circle cx="10.5" cy="10.5" r="7.5"></circle><line x1="21" y1="21" x2="15.8" y2="15.8"></line></svg>
             </a>
-            <a class="btn btn-sm btn-outline-secondary" href="signup.php">Registrarse</a>
+						<a class="btn btn-sm btn-outline-secondary" href="../_estatal/Token/pedirtoken.php">Pedir Token</a>
           </div>
         </div>
       </header>
@@ -65,7 +77,7 @@
             Adquisiciones más recientes
           </h3>
       <div class="row mb-2">
-        <?php require_once('dao/libros.php');
+        <?php require_once('../dao/librosE.php');
          do{?>
         <div class="col-md-6">
           <div class="card flex-md-row mb-4 shadow-sm h-md-250">
@@ -80,7 +92,7 @@
               </p>
               <a href="#">Leer más</a>
             </div>
-            <img class="card-img-right flex-auto d-none d-lg-block"  src="img/portada.jpg" width="200px" weight="200px" alt="Card image cap">
+            <img class="card-img-right flex-auto d-none d-lg-block"  src="../img/portada2.jpg" width="200px" weight="200px" alt="Card image cap">
           </div>
 
         </div>
@@ -91,7 +103,7 @@
     </div>
 
     <footer class="blog-footer">
-      <p>Biblioteca de Citadel <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+      <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
       <p>
         <a href="#">Back to top</a>
       </p>
@@ -101,10 +113,10 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="js/vendor/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/vendor/holder.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../js/vendor/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/vendor/holder.min.js"></script>
     <script>
       Holder.addTheme('thumb', {
         bg: '#55595c',
